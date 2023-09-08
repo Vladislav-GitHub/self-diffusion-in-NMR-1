@@ -8,7 +8,7 @@ st.title('Bootcamp hackaton')
 st.title('Автоматический подбор параметров самодиффузии по результатам ЯМР')
 
 # Адрес сервера для обработки видео
-url = 'http://host.docker.internal:8000/application'
+url = 'http://host.docker.internal:8000/file_handler'
 
 # Вводимый пользователем файл
 uploaded_file = st.file_uploader("Загрузите файл с данными эксперимента в формате csv", type=['csv', 'xls', 'xlsx'])
