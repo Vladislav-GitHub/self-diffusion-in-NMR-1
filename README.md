@@ -1,5 +1,5 @@
 # Автоматический подбор коэффициентов самодиффузии для оценки результатов ЯМР
-# self-diffusion-in-NMR
+
 
 ## Описание
 Цель проекта – создать программу, автоматизирующую подбор данных, необходимых для проведения гистологического исследования биопсийного материала.
@@ -12,7 +12,6 @@
 
 ## Требования для запуска
 - Docker 
-- Docker
 
 ## Документация
 - [Numpy](https://numpy.org/doc/)
@@ -23,11 +22,21 @@
 
 ### ML модель сохранена в ".pth" расширении
 
-## Инструкции по сборке и запуску
+### Сборка Docker образа и запуск контейнеров с FastAPI и Streamlit
+```bash
+# сборка docker image
+docker build -t mfdp2:latest .
+
+# запуск контейнера с FastAPI сервером в фоновом режиме:
+docker run --gpus all -d --rm -v $PWD:/app -p 8000:8000 mfdp2:latest uvicorn main:app --host 0.0.0.0 --port 8000
+
+# запуск контейнера с фронтендом на Streamlit в фоновом режиме:
+docker run -d --rm -v $PWD:/app -p 8501:8501 mfdp2:latest streamlit run app.py
+```
+
 После выполнения команд, сервисы будут доступны на следующих портах:  
 FastAPI сервер будет доступен на http://localhost:8000  
-Streamlit фронтенд будет доступен на http://localhost:8501  
-Streamlit фронтенд будет доступен на http://localhost:8501
+Streamlit фронтенд будет доступен на http://localhost:8501    
 
 - Где проводился Хакатон?
 https://ai-talent-hack.webflow.io/
