@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 # Заголовок приложения
-st.title('Автоматический подбор параметров самодиффузии по результатам ЯМР')
+st.title('Автоматический подбор коэффициентов самодиффузии для оценки результатов ЯМР')
 
 # Вводимый пользователем файл
 uploaded_file = st.file_uploader("Загрузите файл с данными эксперимента", type=[])
@@ -22,10 +22,10 @@ if uploaded_file is not None:
             response_data = response.text
 
         if ("fitted_A" and "fitted_B") in response_data:
-            st.write("Подобранные населенности: ", response_data["fitted_A"]) 
-            st.write("Подобранные коэффициента самодиффузии: ",response_data["fitted_B"])
+            st.write("Подобранные коэффициенты населенности: ", response_data["fitted_A"]) 
+            st.write("Подобранные коэффициенты самодиффузии: ",response_data["fitted_B"])
         else:
-            st.write("Не удалось подобрать оптимальные параметры")
+            st.write("Не удалось подобрать оптимальные коэффициенты")
         
         # Получение и отображение истории потерь (если она есть в ответе)
         if "loss_history" in response.json():
