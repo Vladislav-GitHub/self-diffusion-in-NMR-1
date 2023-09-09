@@ -22,6 +22,15 @@
 
 ### ML модель сохранена в ".pth" расширении
 
+## Инструкции по сборке и запуску
+
+### Клонирование репозитория
+
+```bash
+git clone https://github.com/edvltshn/MFDP2-VideoEmotionAnalisys.git
+cd mfdp/app
+```
+
 ### Сборка Docker образа и запуск контейнеров с FastAPI и Streamlit
 ```bash
 # сборка docker image
@@ -36,7 +45,7 @@ docker run -d --rm -v $PWD:/app -p 8501:8501 mfdp2:latest streamlit run app.py
 
 После выполнения команд, сервисы будут доступны на следующих портах:  
 FastAPI сервер будет доступен на http://localhost:8000  
-Streamlit фронтенд будет доступен на http://localhost:8501    
+Streamlit фронтенд будет доступен на http://localhost:8501   
 
 - Где проводился Хакатон?
 https://ai-talent-hack.webflow.io/
